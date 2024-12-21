@@ -1,7 +1,4 @@
 from django.db import models
-from requests import post
-from django.conf import settings
-from pytz import timezone
 from .validators import img_validator, custom_file_path
 from ckeditor.fields import RichTextField
 
@@ -75,27 +72,3 @@ class Application(models.Model):
 
     def __str__(self):
         return self.name
-
-    def save(self, *args, **kwargs):
-        if self.is_read:
-            text = f"Ism: {self.name}\n"
-            text += f"Telefon: {self.phone}\n"
-            text += f"Email: {self.email}\n"
-            text += f"Javob berildi: ✅\n"
-            text += f"Habar: {self.message}\n"
-            text += f"Yuborilgan vaqt: {self.created_at.astimezone(tz=timezone('Asia/Tashkent')).strftime('%d.%m.%Y %H:%M')}"
-            mes = self.msg
-            post(f"https://api.telegram.org/bot{settings.BOT_TOKEN}/editMessageText", json={
-                "chat_id": settings.GROUP_ID,
-                "message_id": mes.message_id,
-                "text": text
-            })
-        super(Application, self).save(*args, **kwargs)
-
-
-class BotMessage(models.Model):
-    application = models.OneToOneField(Application, models.CASCADE, related_name='msg')
-    message_id = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.message_id

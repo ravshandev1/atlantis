@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect
-from django.conf import settings
-from requests import post
 from pytz import timezone
-from .models import About, Application, BotMessage, Contact, Partner, Carousel, OurSolve, Step
+from .models import About, Application, Contact, Partner, Carousel, OurSolve, Step
 from django.contrib import messages
+from django.core.mail import send_mail
 
 
 def index(request):
@@ -25,13 +24,13 @@ def index(request):
         text += f"Javob berildi: ❌\n"
         text += f"Habar: {obj.message}\n"
         text += f"Yuborilgan vaqt: {obj.created_at.astimezone(tz=timezone('Asia/Tashkent')).strftime('%d.%m.%Y %H:%M')}"
-        payload = {
-            "chat_id": settings.GROUP_ID,
-            "text": text,
-            "parse_mode": "HTML"
-        }
-        res = post(f"https://api.telegram.org/bot{settings.BOT_TOKEN}/sendMessage", json=payload)
-        BotMessage.objects.create(application_id=obj.id, message_id=res.json()['result']['message_id'])
+        send_mail(
+            subject=f"Yangi murojaat: {name}",
+            message=text,
+            from_email='atlantisuz07@gmail.com',
+            recipient_list=['info@atlantis.uz'],
+            fail_silently=False,
+        )
         messages.success(request, "Success")
         return redirect('.')
     return render(request, 'index.html',

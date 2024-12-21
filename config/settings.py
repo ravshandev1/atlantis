@@ -14,8 +14,6 @@ SECRET_KEY = 'django-insecure-iry^uc+ow0ha8ae$=3u@!e8clk409k8l^aew+z_gg^&rlq=ua3
 # DEBUG = False
 DEBUG = True
 IMG_SIZE = 15
-GROUP_ID = "-1002164984527"
-BOT_TOKEN="7419830226:AAGIyVjLFm8AA_eo6D25Bf9ht7CD6iiw5pk"
 CSRF_TRUSTED_ORIGINS = ['https://atlantis.uz']
 
 ALLOWED_HOSTS = ['*']
@@ -128,3 +126,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# for smtp
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'atlantisuz07@gmail.com'
+EMAIL_HOST_PASSWORD = 'zuut xkwk pxit fcio'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
