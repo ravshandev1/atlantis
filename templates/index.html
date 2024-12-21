@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+{% load static %}
+{% load static i18n %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="keywords" content="Atlantis, Атлантис">
+    <meta property="og:title" content="ATLANTIS KONTSEPT GROUP, Ваш официальный проводник в мир технологий">
+    <meta property="og:description"
+          content="Компания Atlantis Kontsept Group твердо придерживается принципа, что технологии должны способствовать росту и успеху бизнеса, а не ограничивать его. Опираясь на многолетний опыт и высокую квалификацию наших специалистов, мы предлагаем широкий спектр первоклассных ИТ-услуг, отбирая для каждого клиента решения, идеально отвечающие его уникальным потребностям. Наш подход к работе основан на добросовестности и внимании к деталям, что позволяет нам обеспечивать безупречное качество выполнения задач, пока вы сосредотачиваетесь на развитии своей деятельности.">
+    <meta property="og:url" content="https://atlantis.uz/">
+    <meta property="og:image" content="{% static 'img/Atlantis/logo2.jpg' %}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:description"
+          content="Компания Atlantis Kontsept Group твердо придерживается принципа, что технологии должны способствовать росту и успеху бизнеса, а не ограничивать его. Опираясь на многолетний опыт и высокую квалификацию наших специалистов, мы предлагаем широкий спектр первоклассных ИТ-услуг, отбирая для каждого клиента решения, идеально отвечающие его уникальным потребностям. Наш подход к работе основан на добросовестности и внимании к деталям, что позволяет нам обеспечивать безупречное качество выполнения задач, пока вы сосредотачиваетесь на развитии своей деятельности.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@atlantis.uz">
+    <meta name="twitter:image" content="{% static 'img/Atlantis/logo2.jpg' %}">
+    <meta name="twitter:creator" content="@atlantis.uz">
+    <!-- Additional text for Telegram share meta -->
+    <meta property="og:telegram:share_text"
+          content="В Atlantis Kontsept Group мы убеждены, что технологии — это мощный инструмент для укрепления и умножения успеха компании, а не преграда на пути к нему. Мы стремимся использовать инновационные решения, которые раскрывают весь потенциал бизнеса, помогая ему расти и достигать новых высот.">
+    <title>Atlantis</title>
+    <link rel="icon" type="image/gif" href="{% static 'img/Atlantis/logo2.jpg' %}">
+    <script src="{% static 'plugin/tailwind/tailwind.js' %}"></script>
+    <script src="{% static 'plugin/tailwind/tailwind.config.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/font.css' %}"/>
+    <link rel="stylesheet" href="{% static 'plugin/aos/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'plugin/Swiper/swiper-bundle.min.css' %}">
+</head>
+<body class="">
+<div class="wrapper  overflow-x-hidden">
+    <!--      modal-->
+    <div class="modal w-[300px] md:w-[360px] space-y-5 rounded-xl bg-[#FFFFFFB3] p-6 md:p-[30px] fixed top-[60%] -right-[100%] right-0 z-[1000] translate-x-full">
+        <div class="flex justify-between items-start">
+            <p class="font-cambria font-normal text-[#1C1C1C] w-[60%]">{% trans 'Свяжемся с вами для выбора лучшего решения' %}</p>
+            <button class="close-modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                     stroke="#1C1C1C99" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="lucide lucide-x">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                </svg>
+            </button>
+
+        </div>
+        <form action="." method="post" class="space-y-5">
+            {% csrf_token %}
+            <div>
+                <input type="text" name="phone" placeholder="+998 XX XXX XX XX"
+                       class="w-full text-[#1C1C1C80] border-none bg-[#F5F5F5] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                       required>
+            </div>
+
+            <div class="">
+                <button type="submit"
+                        class="bg-red-500 w-full text-white font-bold py-2 px-6 rounded-lg hover:bg-red-600 transition">
+                    {% trans 'Заказать звонок' %}
+                </button>
+            </div>
+        </form>
+    </div>
+    <!--      tel-->
+    <div class="fixed bottom-[12%] z-[99999] right-5 flex flex-col items-center justify-center"
+         tabindex="0">
+        <div class="w-[90%] h-[90%] rounded-full animate-ping border border-currentRed absolute "></div>
+        <div class="p-4 md:p-6 rounded-full relative z-10 bg-[#c31e1a] block w-fit text-white">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="xl:text-xl"
+                 height="24px" width="24px" xmlns="http://www.w3.org/2000/svg">
+                <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"></path>
+            </svg>
+        </div>
+    </div>
+    <!--      navbar-->
+    <nav class="bg-white fixed w-full border-b-[0.5px] border-border  top-0 z-50 py-4 md:py-5">
+        <div class="container">
+            <div class="flex justify-between items-center">
+                <a href="/" class="  h-[36px] block w-[140px]">
+                    <img src="{% static 'img/Atlantis/logo.png' %}" alt="Nafis logo"
+                         class="w-full h-full object-contain"/>
+                </a>
+                <ul id="list"
+                    class="border-r-[1px] border-border md:border-0 max-md:pt-10 max-md:px-6 flex h-screen md:h-auto md:justify-between md:bg-transparent bg-white fixed w-[320px] md:w-auto top-0 md:flex-row flex-col -right-full md:static items-center gap-6 lg:gap-[50px] text-[#1C1C1C] whitespace-nowrap duration-300 z-50">
+                    <li class="md:hidden w-full flex justify-end">
+                        <div id="closeMenu">
+                            <i data-lucide="x" class="text-[#1C1C1C] hover:text-red-500 text-xl block "></i>
+                        </div>
+                    </li>
+                    <li class="relative list-item before:w-0 before:h-[2px] before:duration-200 before:left-1/2 before:bg-red-500 before:absolute before:-bottom-1 hover:before:w-1/2 after:w-0 after:h-[2px] after:duration-200 after:right-1/2 before:rounded-e after:rounded-s after:bg-red-500 after:absolute after:-bottom-1 hover:after:w-1/2  ">
+                        <a href="#about">{% trans 'О компании' %}</a></li>
+                    <li class="relative list-item before:w-0 before:h-[2px] before:duration-200 before:left-1/2 before:bg-red-500 before:absolute before:-bottom-1 hover:before:w-1/2 after:w-0 after:h-[2px] after:duration-200 after:right-1/2 before:rounded-e after:rounded-s after:bg-red-500 after:absolute after:-bottom-1 hover:after:w-1/2  ">
+                        <a href="#service">{% trans 'Наши решения' %}</a></li>
+                    <li class="relative list-item before:w-0 before:h-[2px] before:duration-200 before:left-1/2 before:bg-red-500 before:absolute before:-bottom-1 hover:before:w-1/2 after:w-0 after:h-[2px] after:duration-200 after:right-1/2 before:rounded-e after:rounded-s after:bg-red-500 after:absolute after:-bottom-1 hover:after:w-1/2  ">
+                        <a href="#partner">{% trans 'Партнёры' %}</a></li>
+                    <li class="relative list-item before:w-0 before:h-[2px] before:duration-200 before:left-1/2 before:bg-red-500 before:absolute before:-bottom-1 hover:before:w-1/2 after:w-0 after:h-[2px] after:duration-200 after:right-1/2 before:rounded-e after:rounded-s after:bg-red-500 after:absolute after:-bottom-1 hover:after:w-1/2  ">
+                        <a href="#contact">{% trans 'Контакты' %}</a></li>
+                </ul>
+                <div class="flex gap-5 items-center">
+                    <div class="relative">
+                        <div class="md:rounded-lg md:border md:border-[#F2F3F7] md:py-1.5 md:px-2.5">
+                            <p class="lang cursor-pointer font-roboto">RU</p>
+                        </div>
+                        <div class="lang-items w-16 absolute top-[46px] md:top-[55px] left-[-20px] text-dark grid grid-rows-[0fr] duration-200 text-[15px]">
+                            <div class="langs overflow-hidden bg-white rounded">
+                                <a href="{% url 'set-language' 'uz' %}">
+                                    <div class="hover:bg-black/10 p-2 flex items-center gap-2 cursor-pointer">
+                                        <div class="w-5 h-3">
+                                            <img class="w-full h-full" src="{% static 'img/UK-flag.png' %}" alt="EN">
+                                        </div>
+                                        <span>UZ</span>
+                                    </div>
+                                </a>
+                                <a href="{% url 'set-language' 'ru' %}">
+                                    <div class="hover:bg-black/10 p-2 flex items-center gap-2 cursor-pointer">
+                                        <div class="w-5 h-4">
+                                            <img class="w-full h-full" src="{% static 'img/ru-flag.svg' %}" alt="RU">
+                                        </div>
+                                        <span>RU</span>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="burger" class="md:hidden ">
+                        <div class="p-1 rounded">
+                            <i data-lucide="menu" class="text-[#1C1C1C] hover:text-red-500 text-xl block"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!--      header-->
+        <section class=" text-white relative h-[80vh] md:h-screen">
+            <div class="swiper header-swiper h-full">
+                <div class="swiper-wrapper h-full">
+                    {% for i in carousels %}
+                        <div class="swiper-slide h-full">
+                            <div class="h-full w-full relative">
+                                <div class="container h-full flex items-center">
+                                    <div class="space-y-5">
+                                        <h1 data-aos="fade-right"
+                                            class=" text-2xl  md:text-4xl font-cambria font-normal uppercase">
+                                            {{ i.title }}
+                                        </h1>
+                                        <p data-aos="fade-right" class="text-xl md:text-[28px] font-cambria">
+                                            {{ i.text }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="w-full h-full absolute top-0 left-0 -z-10">
+                                    <img class="w-full h-full object-cover" src="{{ i.image.url }}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="absolute container bottom-[5%] md:bottom-[20%] left-1/2 -translate-x-1/2	z-10 flex items-center gap-4 md:gap-6">
+                <div class="custom-prev bg-white rounded-full p-1.5  text-black" data-aos="fade-up">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-chevron-left">
+                        <path d="m15 18-6-6 6-6"/>
+                    </svg>
+                </div>
+                <div data-aos="fade-up" class="custom-next bg-white rounded-full p-1.5  text-black">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="lucide lucide-chevron-right">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+
+                </div>
+            </div>
+        </section>
+        <!--about-->
+        <section id="about" class="about py-5 md:py-10">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">{% trans 'О компании' %}</h2>
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-[16px] md:gap-[50px] xl:gap-[70px] max-md:bg-[#F2F3F7] px-4 md:px-0 pb-24 md:pb-0 pt-6 md:pt-0 rounded-lg">
+                    <div class="swiper aboutSwiper1 w-full">
+                        <div class="swiper-wrapper w-full" data-aos="fade-up">
+                            <div class="h-[50px] md:h-[320px] swiper-slide w-full md:bg-[#F2F3F7] flex items-center md:justify-center md:px-20 xl:px-28 2xl:px-36 md:py-5 2xl:py-7">
+                                <img class=" h-full aspect-square object-contain" src="{{ about.image.url }}"
+                                     alt="about image">
+                            </div>
+                            <div data-aos="fad-up"
+                                 class="h-[50px] md:h-[320px] swiper-slide w-full md:bg-[#F2F3F7] flex items-center md:justify-center md:px-20 xl:px-28 2xl:px-36 md:py-5 2xl:py-7">
+                                <img class=" h-full aspect-square object-contain" src="{{ about.philosophy_image.url }}"
+                                     alt="philosophy_image">
+                            </div>
+                            <div data-aos="fad-up"
+                                 class="h-[50px] md:h-[320px] swiper-slide w-full md:bg-[#F2F3F7] flex items-center md:justify-center md:px-20 xl:px-28 2xl:px-36 md:py-5 2xl:py-7">
+                                <img class=" h-full aspect-square object-contain" src="{{ about.mission_image.url }}"
+                                     alt="mission_image">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:space-y-[30px] w-full">
+                        <div class="swiper aboutSwiperButton w-full bg-[#F2F3F766] hidden md:block"
+                             data-aos="fade-down">
+                            <div class="swiper-wrapper  rounded-lg">
+                                <button class="swiper-slide bg-transparent  text-[#1C1C1C99] font-bold py-2 px-6 rounded-lg ">
+                                    {% trans 'О нас' %}
+                                </button>
+                                <button class="swiper-slide bg-transparent  text-[#1C1C1C99] font-bold py-2 px-6 rounded-lg ">
+                                    {% trans 'Философия' %}
+                                </button>
+                                <button class="swiper-slide bg-transparent  text-[#1C1C1C99] font-bold py-2 px-6 rounded-lg ">
+                                    {% trans 'Миссия' %}
+                                </button>
+                            </div>
+                        </div>
+                        <div class="swiper aboutSwiper2 w-full" data-aos="fade-up">
+                            <div class="swiper-wrapper w-full">
+                                <div class="swiper-slide space-y-4">
+                                    <p class="font-bold font-cambria md:hidden">{% trans 'О нас' %}</p>
+                                    <p class="font-cambria text-[#1C1C1CC2] text-sm md:text-base">
+                                        {{ about.text|safe }}
+                                    </p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="font-bold font-cambria md:hidden">{% trans 'Философия' %}</p>
+
+                                    <p class="font-cambria text-[#1C1C1CC2] text-sm md:text-base">
+                                        {{ about.philosophy|safe }}
+                                    </p>
+                                </div>
+                                <div class="swiper-slide">
+                                    <p class="font-bold font-cambria md:hidden">{% trans 'Миссия' %}</p>
+
+                                    <p class="font-cambria text-[#1C1C1CC2] text-sm md:text-base">
+                                        {{ about.mission|safe }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="absolute  bottom-10 right-4	z-10 flex items-center gap-4 md:gap-6 md:hidden">
+
+                        <div class="custom-prev-about bg-white rounded-full p-1.5  text-black">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 class="lucide lucide-chevron-left">
+                                <path d="m15 18-6-6 6-6"/>
+                            </svg>
+                        </div>
+                        <div class="custom-next-about bg-white rounded-full p-1.5  text-black">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 class="lucide lucide-chevron-right">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--     service   -->
+        <section id="service" class="service bg-[#F2F3F7]  py-5 md:py-10 space-y-10 ">
+            <div class="container ">
+                <h2 class="section-title" data-aos="fade-up">{% trans 'Наши решения' %}</h2>
+                <div class="grid md:grid-cols-2 gap-4 md:gap-10">
+                    {% for i in our_solves %}
+                        <div data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                             class="col-span-1 rounded-md px-4 py-5 md:p-6 lg:p-10 flex item-center gap-3 flex-col md:flex-row  bg-white">
+                            <img class="col-span-1 md:col-span-2 w-[52px] h-[52px] md:w-[140px] md:h-[140px]"
+                                 src="{{ i.icon.url }}">
+                            <div class="col-span-1 md:col-span-3 space-y-3 md:space-y-4 lg:space-y-5">
+                                <h4 class="text-sm md:text-xl font-bold">{{ i.title }}</h4>
+                                <p class="section-text">
+                                    {{ i.text }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">{% trans 'Основные этапы работы' %}</h2>
+                <div data-aos="fade-up" data-aos-anchor-placement="top-bottom" class="grid grid-cols-1 gap-4 md:gap-5">
+                    {% for i in steps %}
+                        <div class="col-span-1 rounded-md md:col-span-2 px-4 py-5 md:py-4  md:px-6 md:px-10 flex item-center gap-3 flex-col md:flex-row  bg-white">
+                            <img class="col-span-1 md:col-span-2 w-[32px] h-[32px] " src="{{ i.icon.url }}">
+                            <div class="col-span-1 ">
+                                <p class="section-text">{{ i.text }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <section id="partner" class="partner py-5 md:py-10">
+            <div class="container">
+                <div class="flex items-center justify-between w-full">
+                    <h2 data-aos="fade-up" class="section-title ">{% trans 'Наши партнеры' %}</h2>
+                    <div class=" md:hidden  flex items-center gap-4 md:gap-6">
+
+                        <div class="custom-prev-partner bg-[#F2F3F7] rounded-full p-1.5  text-black">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 class="lucide lucide-chevron-left">
+                                <path d="m15 18-6-6 6-6"/>
+                            </svg>
+                        </div>
+                        <div class="custom-next-partner bg-[#F2F3F7] rounded-full p-1.5  text-black">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                 fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                 class="lucide lucide-chevron-right">
+                                <path d="m9 18 6-6-6-6"/>
+                            </svg>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper partnerSwiper">
+                    <div class="swiper-wrapper grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-x-7 md:gap-y-8 lg:gap-x-10 lg:gap-y-[70px]">
+                        {% for i in partners %}
+                            <a data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                               class=" swiper-slide w-full md:w-[180px] h-20" target="_blank">
+                                <img class="h-full w-full object-contain" src="{{ i.icon.url }}"
+                                     alt="synecta">
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section id="contact" class="contact bg-[#F2F3F7]  py-5 md:py-10 space-y-[30] ">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">{% trans 'Контакты' %}</h2>
+                <div class="grid md:grid-cols-2 gap-4 md:gap-5">
+                    <div class="space-y-5 md:space-y-8" data-aos="fade-up">
+                        <div class="space-y-2 md:space-y-2.5">
+                            <p class="text-sm md:text-base text-[#1C1C1CB3]">
+                                {% trans 'Режим работы:' %}
+                            </p>
+                            <p class="text-base md:text-xl text-[#1C1C1C]">
+                                {{ contact.working_time }}
+                            </p>
+                        </div>
+                        <div class="space-y-2 md:space-y-2.5">
+                            <p class="text-sm md:text-base text-[#1C1C1CB3]">
+                                {% trans 'Телефон номер:' %}
+                            </p>
+                            <a href="tel:{{ contact.phone }}" class="text-base md:text-xl mr-2 text-[#1C1C1C]">
+                                {{ contact.phone }}
+                            </a>
+                            {% if contact.phone2 %}<a href="tel:{{ contact.phone2 }}" class="text-base md:text-xl text-[#1C1C1C]">
+                                {{ contact.phone2 }}
+                            </a>{% endif %}
+                        </div>
+                        <div class="space-y-2 md:space-y-2.5">
+                            <p class="text-sm md:text-base text-[#1C1C1CB3]">
+                                {% trans 'Электронная почта:' %}
+                            </p>
+                            <a href="mailto:{{ contact.mail }}" class="text-base md:text-xl text-[#1C1C1C]">
+                                {{ contact.mail }}
+                            </a>
+                        </div>
+                        <div class="space-y-2 md:space-y-2.5">
+                            <p class="text-sm md:text-base text-[#1C1C1CB3]">
+                                {% trans 'Адрес:' %}
+                            </p>
+                            <p class="text-base md:text-xl text-[#1C1C1C]">
+                                {{ contact.address }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class=" py-5 md:py-6 px-4 md:px-10 rounded-md bg-white" data-aos="fade-up">
+                        <h2 class="md:text-xl font-bold mb-4 md:mb-6">{% trans 'Напишите нам' %}</h2>
+                        <form action="." method="post" class="space-y-4">
+                            {% csrf_token %}
+                            <div>
+                                <input type="text" name="name" placeholder="{% trans 'Ваше имя' %}"
+                                       class="w-full text-[#1C1C1C80] border-none bg-[#F5F5F5] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                       required>
+                            </div>
+                            <div class="flex flex-col md:flex-row gap-4">
+                                <input type="text" name="phone" placeholder="{% trans 'Телефон' %}"
+                                       class="w-full md:w-1/2 text-[#1C1C1C80] border-none bg-[#F5F5F5] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                       required>
+                                <input type="email" name="email" placeholder="{% trans 'Электронная почта' %}"
+                                       class="w-full md:w-1/2 text-[#1C1C1C80] border-none bg-[#F5F5F5] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                       required>
+                            </div>
+                            <div>
+                                <textarea name="message" placeholder="{% trans 'Сообщение' %}"
+                                          class="w-full text-[#1C1C1C80] border-none bg-[#F5F5F5] rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                                          rows="4" required></textarea>
+                            </div>
+                            <div class="flex justify-end  ">
+                                <button type="submit"
+                                        class="bg-red-500 w-1/2 text-white font-bold py-2 px-6 rounded-lg hover:bg-red-600 transition">
+                                    {% trans 'Отправить' %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-span-1 md:col-span-2">
+                        <iframe class="w-full h-[240px] md:h-[320px] xl:h-[400px]"
+                                src="{{ contact.iframe_src }}"
+                                style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#1C1C1C] py-2">
+        <div class="container flex justify-center items-center text-white ">
+            <p class="text-white text-xs md:text-base">© <span
+                    class="footer-year"></span>{% trans ' ООО «Atlantis Kontsept Group». Все права защищены' %}</p>
+        </div>
+    </footer>
+</div>
+
+<script src="{% static 'plugin/aos/aos.js' %}"></script>
+<script src="{% static 'plugin/Lucide-icon/lucide.min.js' %}"></script>
+<script src="{% static 'js/navbar.js' %}"></script>
+<script src="{% static 'plugin/Lucide-icon/lucide.min.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'plugin/Swiper/swiper-bundle.min.js' %}"></script>
+<script>
+    AOS.init();
+    // header swiper
+    let swiperHeader = new Swiper(".header-swiper", {
+        slidesPerView: 1,
+        effect: "fade",
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+        },
+    });
+    // about swiper
+    let aboutSwiperButton = new Swiper(".aboutSwiperButton", {
+        slidesPerView: 3,
+        freeMode: true,
+        watchSlidesProgress: true,
+        multipleActiveThumbs: true,
+        simulateTouch: false,  // Disable touch simulation (dragging)
+        allowTouchMove: false,  // Disable the ability to swipe (move) slides
+    });
+
+    let aboutSwiper2 = new Swiper(".aboutSwiper2", {
+        slidesPerView: 1,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true,
+        },
+        thumbs: {
+            swiper: aboutSwiperButton,
+        },
+        navigation: {
+            nextEl: ".custom-next-about",
+            prevEl: ".custom-prev-about",
+        },
+        simulateTouch: false,  // Disable touch simulation (dragging)
+        allowTouchMove: false,  // Disable the ability to swipe (move) slides
+    });
+    let aboutSwiper1 = new Swiper(".aboutSwiper1", {
+        slidesPerView: 1,
+        effect: "fade",
+        fadeEffect: {
+            crossFade: true,
+        },
+        thumbs: {
+            swiper: aboutSwiperButton,
+        },
+        navigation: {
+            nextEl: ".custom-next-about",
+            prevEl: ".custom-prev-about",
+        },
+        simulateTouch: false,  // Disable touch simulation (dragging)
+        allowTouchMove: false,  // Disable the ability to swipe (move) slides
+    });
+    document.querySelectorAll('.aboutSwiperButton .swiper-slide').forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+            aboutSwiper1.slideTo(index);
+            aboutSwiper2.slideTo(index);
+        });
+    });
+
+    // partner swiper
+    let swiperPartner
+    const toggleSwiper = () => {
+        const gridContainer = document.querySelector('.partnerSwiper .swiper-wrapper')
+        if (window.innerWidth < 768) {
+            if (!swiperPartner) {
+                console.log('render')
+                gridContainer.classList.remove('grid', 'grid-cols-2', 'md:grid-cols-4', 'gap-5', 'md:gap-x-7', 'md:gap-y-8', 'lg:gap-x-10', 'lg:gap-y-[70px]')
+                swiperPartner = new Swiper(".partnerSwiper", {
+                    slidesPerView: 2,
+                    grid: {
+                        rows: 3,
+                        fill: 'row'
+                    },
+                    navigation: {
+                        nextEl: ".custom-next-partner",
+                        prevEl: ".custom-prev-partner",
+                    },
+                });
+            }
+        } else {
+            if (swiperPartner) {
+                swiperPartner.destroy(true, true);
+                swiperPartner = null;
+                gridContainer.classList.add('grid', 'grid-cols-2', 'md:grid-cols-4', 'gap-5', 'md:gap-x-7', 'md:gap-y-8', 'lg:gap-x-10', 'lg:gap-y-[70px]');
+            }
+        }
+    }
+
+    window.addEventListener('resize', toggleSwiper);
+    document.addEventListener('DOMContentLoaded', toggleSwiper);
+</script>
+
+<script>
+    const modal = document.querySelector('.modal')
+    const closeModal = document.querySelector('.close-modal')
+
+    closeModal.addEventListener('click', () => {
+        console.log('render')
+        modal.classList.add('hidden')
+    })
+
+    // Cookie o'qish funksiyasi
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // Cookie o'rnatish funksiyasi
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const langBtn = document.querySelector('.lang');
+        const langMenu = document.querySelector('.lang-items');
+
+        // Sahifa yuklanganda cookie-dan tilni o'qib olish
+        const savedLang = getCookie('selectedLang');
+        if (savedLang) {
+            langBtn.textContent = savedLang;
+        }
+
+        // Tilni tanlash
+        langMenu.addEventListener('click', function (e) {
+            if (e.target.tagName === 'SPAN') {
+                const selectedLang = e.target.textContent.trim();
+                langBtn.textContent = selectedLang;
+                // Tanlangan tilni cookie-ga saqlash
+                setCookie('selectedLang', selectedLang, 7); // 7 kunga saqlash
+            }
+        });
+
+        // Menyuni ochib-yopish uchun
+        langBtn.addEventListener('click', function () {
+            langMenu.classList.toggle('grid-rows-[0fr]');
+            langMenu.classList.toggle('grid-rows-[1fr]');
+        });
+    });
+</script>
+</body>
+</html>

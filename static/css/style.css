@@ -1,0 +1,141 @@
+@import url('font.css');
+/*@tailwind base;*/
+/*@tailwind components;*/
+/*@tailwind utilities;*/
+
+
+/* @layer components {
+    .btn-white {
+      @apply relative before:absolute before:-top-[10px] before:-right-[10px] before:border-[1px] before:border-border before:rounded-[40px] before:w-full before:-z-10  before:duration-300 before:h-full  hover:before:top-[0px] hover:before:right-0 px-6 py-3  whitespace-nowrap bg-white text-green font-messiri rounded-[40px] text-lg ;
+    }
+} */
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #434343;
+  color: #5a8ead;
+}
+
+
+
+*{
+  scroll-behavior: smooth;
+  font-family: 'Cambria' , sans-serif !important;
+}
+
+.splide {
+  pointer-events: none;
+}
+.splide__slide {
+  opacity: 0.6;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.splide__slide.is-active {
+  opacity: 1;
+}
+
+.animation-scale{
+  animation: animation-header 15s ease-in-out infinite alternate;
+}
+@keyframes animation-header {
+  0% {
+    transform: scale(1.0);
+}
+100% {
+    transform: scale(1.2);
+}
+}
+
+
+
+.splide {
+  margin: 0 auto;
+}
+
+.thumbnails {
+  display: flex;
+  margin: 1rem auto 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.thumbnail {
+  width: 70px;
+  height: 70px;
+  overflow: hidden;
+  list-style: none;
+  margin: 0 0.2rem;
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.thumbnail.is-active {
+  opacity: 1;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: auto;
+}
+html{
+  overflow-x: hidden !important;
+}
+/*swiper*/
+.aboutSwiperButton .swiper-slide-thumb-active{
+  background-color: #EF4444 !important;
+  color:white !important;
+}
+
+/*modal*/
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-20%);
+    opacity: 1;
+  }
+}
+
+.modal {
+  animation: slideInFromRight 0.3s ease-out 2s forwards;
+
+}
+
+.section-title {
+  font-family: 'Cambria';
+  font-weight: 400;
+  letter-spacing: 5px;
+  font-size: 18px;
+  line-height: 40px;
+  margin-bottom: 16px;
+  color: #1C1C1C;
+}
+.section-text{
+  font-family: 'cambria';
+  font-weight: 400;
+
+  font-size: 13px;
+  line-height: 15px;
+  color: #1C1C1CCC;
+}
+
+@media screen and (min-width:768px) {
+  .section-title {
+    font-size: 24px;
+    line-height: 54px;
+    margin-bottom: 30px;
+  }
+  .section-text{
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
